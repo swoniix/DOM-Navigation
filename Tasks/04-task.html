@@ -60,10 +60,19 @@
     <script>
         /*
         Задание:
-        Напишите сценарий, который на основании значений во второй колонке таблицы #statsTable поменяет цвет строк таблицы (tr)
-        Если во второй ячейке значение больше 100, строка должна отображаться зеленым цветом, если значение менее 100 - красным цветом.
+        Напишите сценарий, который на основании значений во второй колонке таблицы #statsTable
+         поменяет цвет строк таблицы (tr)
+        Если во второй ячейке значение больше 100, 
+        строка должна отображаться зеленым цветом, если значение менее 100 - красным цветом.
         Для смены цвета строки используйте код row.style.backgroundColor = "цвет"
         */
+        let cells = document.querySelectorAll("#statsTable td:nth-child(2)")
+        let sumC2 = 0
+        for(let i=0;i<cells.length;i++) {
+          sumC2+=Number(cells[i].textContent)
+       }
+        document.querySelector("#output").textContent = sumC2
+        let result=document.querySelector("#output")
     </script>
 </body>
 

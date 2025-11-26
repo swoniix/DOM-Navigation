@@ -63,6 +63,11 @@
             <td>125</td>
             <td>100</td>
         </tr>
+        <tr>
+            <td>Итого</td>
+            <td id="totalC2"></td>
+            <td id="totalC3"></td>
+        </tr>
     </table>
 
     <div id="result"></div>
@@ -80,9 +85,23 @@
         значений в строке "Итого".
         Используйте любые методы, которые были рассмотрены на в прошлых уроках.
         */
-       let table = document.querySelector("#statsTable td:nth-child(2)")
-       for(const td of table){
-        let res = td.nextElemetSibling.firstElementChild
+       let rows = document.querySelectorAll("#statsTable tr")
+       let sumC2 = 0
+       let sumC3 = 0
+       for(let i=1;i<rows.length;i++){
+        let cells=rows[i].querySelectorAll("td")
+
+        sumC2+=Number(cells[1].textContent)
+        sumC3+=Number(cells[2].textContent)
+       }
+       document.querySelector("#totalC2").textContent=sumC2
+       document.querySelector("#totalC3").textContent=sumC3
+       let result=document.querySelector("#result")
+       if(sumC2>sumC3){
+        result.textContent ="Отдел 1 сделал больше продаж"
+       }
+       else if(sumC3>sumC2){
+        result.textContent="Отдел 2 сделал больше продаж"
        }
     </script>
 </body>
